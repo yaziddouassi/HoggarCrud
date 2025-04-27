@@ -121,14 +121,14 @@ class WizardUpdate extends Controller
     }
 
 
-    public function SetFieldNodatabases($a) {
+    public function SetFieldNodatabase($a) {
 
            $this->tabNodatabases[$a] = $a;
 
     }
 
 
-    public function SetFieldNullables($a) {
+    public function SetFieldNotNullable($a) {
         
            $this->tabNullables[$a] = $a;
 
