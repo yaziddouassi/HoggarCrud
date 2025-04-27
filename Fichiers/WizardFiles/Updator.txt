@@ -12,13 +12,13 @@
             <Conteneur/>
           </div>
           
-          <div class="p-[10px] pt-[0px] flex gap-[5px]">
+          <div class="p-[10px] max-w-[700px] m-auto pt-[0px] flex gap-[5px]">
 
 <button  v-if="(hoggarinput.wizardCurrent == hoggarinput.wizardCount) ||
     hoggarinput.wizardStop.includes(hoggarinput.wizardCurrent)"
 
 class="bg-[blue] w-[100px] text-white p-[9px] rounded-[2px]" type="submit">
-  Save
+  Update
 </button>
 
 <button  v-if="(hoggarinput.wizardCurrent != 1)" @click="reculer()"
