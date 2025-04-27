@@ -60,7 +60,7 @@ class HoggarCreate extends Controller
 
     public function AddField($a,$b) {
         $this->tabFields[$b['field']] = $b['field'] ;
-        $this->tabLabels[$b['field']] = $b['field'] ;
+        $this->tabLabels[$b['field']] = ucfirst($b['field']);
         $this->tabTypes[$b['field']] = $a;
         $this->tabOptions[$b['field']] = $b;
 
