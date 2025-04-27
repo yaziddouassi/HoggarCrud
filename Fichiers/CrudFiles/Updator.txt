@@ -107,7 +107,7 @@ function update() {
 
 if (temoin > 0) {
   const notyf = new Notyf({ position: { x: 'right', y: 'top' } });
-  notyf.error(`${temoin} champ(s) requis manquant(s).`);
+  notyf.error(`${temoin} fields(s) required are missing(s).`);
   return;
 }
 

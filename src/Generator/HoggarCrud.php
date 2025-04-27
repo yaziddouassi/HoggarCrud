@@ -50,7 +50,7 @@ class Hoggarcrud extends Controller
 
         if (File::exists($dossier1)) {
             return back()->withErrors([
-                'message' => 'Un CRUD pour ce modèle existe déjà.'
+                'message' => 'CRUD already exist for this model.'
             ]);
         }
 
@@ -157,7 +157,7 @@ class Hoggarcrud extends Controller
 
         if (File::exists($dossier1)) {
             return back()->withErrors([
-                'message' => 'Un CRUD pour ce modèle existe déjà.'
+                'message' => 'CRUD already exist for this model.'
             ]);
         }
 
