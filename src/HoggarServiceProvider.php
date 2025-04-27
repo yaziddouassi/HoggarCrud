@@ -10,6 +10,10 @@ class HoggarServiceProvider extends ServiceProvider
    
     public function register(): void
     {
+        $this->publishes([
+            __DIR__.'/../config/hoggar.php' => config_path('hoggar.php'),
+        ], 'hoggar-config');
+
         $this->mergeConfigFrom(
             __DIR__.'/../config/hoggar.php', 'hoggar'
         );
