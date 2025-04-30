@@ -10,11 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
-use Hoggar\Hoggar\Generator\WizardCreate;
-use App\Models\Voiture;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\File;
-use Hoggar\Hoggar\Utils\WizardPart;
 
 class Page2Controller extends Controller
 {

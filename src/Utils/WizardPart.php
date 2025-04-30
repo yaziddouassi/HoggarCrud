@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
 use Hoggar\Hoggar\Generator\WizardCreate;
-use App\Models\Voiture;
 use Illuminate\Database\Eloquent\Collection;
 
 class CreatorController extends WizardCreate
@@ -129,7 +128,6 @@ use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
 use Hoggar\Hoggar\Generator\HoggarUpdate;
-use App\Models\Voiture;
 use Illuminate\Database\Eloquent\Collection;
 
 class UpdatorController extends HoggarUpdate
