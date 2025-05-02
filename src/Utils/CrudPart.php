@@ -159,7 +159,7 @@ public function index(Request \$request)
         return \$redirect; // Ensure redirection is returned
     }
 
-    \$this->InitFieldAgain();
+    \$this->initFieldAgain();
     
  
 
@@ -290,7 +290,7 @@ class ListingController extends Listing
 
     public function index(Request \$request)
     {
-        \$this->AllInit(\$request);
+        \$this->allInit(\$request);
        
         return Inertia::render('HoggarPages/Crud/$a/Listing', [
             'items' => \$this->tables,
