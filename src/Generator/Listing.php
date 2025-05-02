@@ -36,23 +36,23 @@ class Listing extends Controller
         
     }
 
-    public function AddFilter($a,$b) {
+    public function addFilter($a,$b) {
         $this->tabFilterFields[$b['field']] = $b['field'] ;
         $this->tabFilterLabels[$b['field']] = $b['field'] ;
         $this->tabFilterTypes[$b['field']] = $a;
         $this->tabFilterOptions[$b['field']] = $b;
     }
 
-    public function AddAction($a,$b) {
+    public function addAction($a,$b) {
         $this->groupActions[$a] = $b ;
     }
 
-    public function InitQuery(Request $request)
+    public function initQuery(Request $request)
      {
        // Méthode volontairement vide, pour être overridée par les enfants
      }
     
-    public function AllInit($request) {
+    public function allInit($request) {
 
         $PaginationPerPage = $this->PaginationPerPageList[0];
         $orderByField = $this->orderByFieldList[0];
@@ -77,14 +77,14 @@ class Listing extends Controller
         }
 
 
-        $this->CustomFilterList($request);
-        $this->InitAction($request);
+        $this->customFilterList($request);
+        $this->initAction($request);
         $this->customFilters['Fields'] =  $this->tabFilterFields ;
         $this->customFilters['Labels'] =  $this->tabFilterLabels ;
         $this->customFilters['Types'] =  $this->tabFilterTypes ;
         $this->customFilters['Options'] =  $this->tabFilterOptions;
         $this->queryFilter = $this->hogarModelClass::select('*');
-        $this->InitQuery($request);
+        $this->initQuery($request);
        
     
         $this->tables = $this->queryFilter->orderBy($orderByField,$orderDirection)

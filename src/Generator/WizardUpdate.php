@@ -57,7 +57,7 @@ class WizardUpdate extends Controller
     }
 
 
-    public function AddField($a,$b) {
+    public function addField($a,$b) {
         $this->tabFields[$b['field']] = $b['field'] ;
         $this->tabLabels[$b['field']] = ucfirst($b['field']) ;
         $this->tabTypes[$b['field']] = $a;
@@ -100,7 +100,7 @@ class WizardUpdate extends Controller
 
     }
 
-    public function SetFieldValue($a,$b) {
+    public function setFieldValue($a,$b) {
 
         if (in_array($a, $this->tabFields)) {
             $this->tabValues[$a] = $b;
@@ -111,7 +111,7 @@ class WizardUpdate extends Controller
 
 
 
-    public function SetFieldLabel($a,$b) {
+    public function setFieldLabel($a,$b) {
 
         if (in_array($a, $this->tabFields)) {
             $this->tabLabels[$a] = $b;
@@ -121,14 +121,14 @@ class WizardUpdate extends Controller
     }
 
 
-    public function SetFieldNodatabase($a) {
+    public function setFieldNodatabase($a) {
 
            $this->tabNodatabases[$a] = $a;
 
     }
 
 
-    public function SetFieldNotNullable($a) {
+    public function setFieldNotNullable($a) {
         
            $this->tabNullables[$a] = $a;
 
@@ -209,10 +209,10 @@ class WizardUpdate extends Controller
 
 
     
-    public function InitFieldAgain() {
+    public function initFieldAgain() {
 
-        $this->AddField('Hidden',['field' => 'id']);
-        $this->SetFieldValue('id',$this->hogarRecordInput->id);
+        $this->addField('Hidden',['field' => 'id']);
+        $this->setFieldValue('id',$this->hogarRecordInput->id);
         $this->initHogarInputs();
 
        foreach ($this->tabFields as $cle => $value) {

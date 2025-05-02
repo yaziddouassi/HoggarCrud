@@ -58,7 +58,7 @@ class HoggarCreate extends Controller
     }
 
 
-    public function AddField($a,$b) {
+    public function addField($a,$b) {
         $this->tabFields[$b['field']] = $b['field'] ;
         $this->tabLabels[$b['field']] = ucfirst($b['field']);
         $this->tabTypes[$b['field']] = $a;
@@ -101,7 +101,7 @@ class HoggarCreate extends Controller
 
     }
 
-    public function SetFieldValue($a,$b) {
+    public function setFieldValue($a,$b) {
 
         if (in_array($a, $this->tabFields)) {
             $this->tabValues[$a] = $b;
@@ -112,7 +112,7 @@ class HoggarCreate extends Controller
 
 
 
-    public function SetFieldLabel($a,$b) {
+    public function setFieldLabel($a,$b) {
 
         if (in_array($a, $this->tabFields)) {
             $this->tabLabels[$a] = $b;
@@ -122,14 +122,14 @@ class HoggarCreate extends Controller
     }
 
 
-    public function SetFieldNodatabases($a) {
+    public function setFieldNodatabases($a) {
 
            $this->tabNodatabases[$a] = $a;
 
     }
 
 
-    public function SetFieldNullables($a) {
+    public function setFieldNullables($a) {
         
            $this->tabNullables[$a] = $a;
 
@@ -201,7 +201,7 @@ class HoggarCreate extends Controller
 
 
 
-    public function InitAll(Request $request) {
+    public function initAll(Request $request) {
     
        
     }

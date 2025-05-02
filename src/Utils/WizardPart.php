@@ -47,8 +47,8 @@ class CreatorController extends WizardCreate
     
     public function initField()
     {
-        \$this->AddField('Text',['field' => 'name']);
-        \$this->AddField('Number',['field' => 'age','min' => '' ,'max' => '','step' => '']);
+        \$this->addField('Text',['field' => 'name']);
+        \$this->addField('Number',['field' => 'age','min' => '' ,'max' => '','step' => '']);
     }
 
     public function store(Request \$request)
@@ -148,8 +148,8 @@ class UpdatorController extends HoggarUpdate
 
     public function initField()
     {   
-        \$this->AddField('Text',['field' => 'name']);
-        \$this->AddField('Number',['field' => 'age','min' => '' ,'max' => '','step' => '']);
+        \$this->addField('Text',['field' => 'name']);
+        \$this->addField('Number',['field' => 'age','min' => '' ,'max' => '','step' => '']);
     }
 
 
@@ -276,22 +276,22 @@ class ListingController extends Listing
     public   \$sessionFilter = [/*'search','PaginationPerPage','orderByField','orderDirection' */] ;
    
 
-    public function CustomFilterList(Request \$request)
+    public function customFilterList(Request \$request)
         {
-            \$this->AddFilter('Text',['field' => 'name']);
+            \$this->addFilter('Text',['field' => 'name']);
             
         }
 
-    public function InitQuery(Request \$request) {
+    public function initQuery(Request \$request) {
             if (\$request->filled('name')) {
             //    \$this->queryFilter = \$this->queryFilter->where('name',\$request->name);
             }
             }
   
     
-    public function InitAction(Request \$request)
+    public function initAction(Request \$request)
         {
-            \$this->AddAction('action1',
+            \$this->addAction('action1',
             ['label'=> 'Ajouter','icon' => 'description','class' => 'text-[red]',
             'url' => '/admin/voitures/action1',
             'confirmation' => 'voulez-vous Ajouter ces records' ,
