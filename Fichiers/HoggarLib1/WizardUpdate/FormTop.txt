@@ -1,7 +1,7 @@
 <template>
     <div class="flex w-full justify-between p-[5px]">
             <div> 
-              <Link :href="wizardupdate.settings.hogarDataUrlCreate" >
+              <Link :href="wizardupdate.settings.hogarDataUrlCreate" @click="hoggarinput.resetError()">
                 <button class="bg-[darkblue] w-[100px] text-white p-[9px] rounded-[2px]">
                 New
                </button>
@@ -27,10 +27,12 @@
 import { WizardUpdate } from '../stores/wizardupdate';
 import { Link } from '@inertiajs/vue3'
 import { HoggarInfo } from '@/HoggarLibs/stores/hoggarinfo';
+import { HoggarInput } from '../stores/hoggarinput';
 import { usePage } from '@inertiajs/vue3'
 
 const wizardupdate = WizardUpdate();
 const hoggarinfo = HoggarInfo();
+const hoggarinput = HoggarInput();
 const page = usePage()
 
 let currentRoute = hoggarinfo.routes.find(item => item.model === page.props.hogarSettings.hogarModelClassName)?.route;
