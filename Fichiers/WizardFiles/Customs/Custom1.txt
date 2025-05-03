@@ -15,8 +15,8 @@
     </div>
 
     <div
-      v-show="show"
-      class="fixed inset-0 z-[500] h-screen w-screen overflow-y-auto bg-[#222] text-white">
+      v-show="show" style="z-index: 500;"
+      class="fixed inset-0 h-screen w-screen overflow-y-auto bg-[#222] text-white">
       <div class="flex items-center justify-center p-[4px]">
         <div>
           <svg @click="closeForm()" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" >
