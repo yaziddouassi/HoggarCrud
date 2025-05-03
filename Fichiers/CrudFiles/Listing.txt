@@ -47,7 +47,7 @@
               </td>
               <td class="py-3 px-4">{{item.id}}</td>
               <td class="py-3 px-4">{{item.name}}</td>
-              <td class="py-3 px-4 max-w-[300px] flex justify-center [gap:5px]">
+              <td class="py-3 px-4 max-w-[300px] flex justify-center gap-2">
                 <BtnUpdate  :ide="item.id" />
                 <BtnDelete  :ide="item.id" />
                 <Custom1 :record="item" :cle="'custom1'" />
