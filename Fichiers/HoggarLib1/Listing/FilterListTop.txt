@@ -39,7 +39,7 @@
     <div class="text-right">
       <div class="flex justify-end gap-2">
         <div>
-          <FilterSelect2 :cle="'PaginationPerPage'" :cle2="'PaginationPerPageList'" />
+          <FilterSelect2 :cle="'paginationPerPage'" :cle2="'paginationPerPageList'" />
         </div>
 
         <div

@@ -30,7 +30,7 @@
       <button class="bg-[black] pr-[16px] pl-[16px] p-[8px] text-white h-[44px]">
         {{ hoggarlisting.settings.hogarDataModelLabel }}
       </button>
-      <Link :href="hoggarlisting.settings.hogarDataUrlCreate" class="block">
+      <Link :href="hoggarlisting.settings.hogarDataUrlCreate" @click="hoggarinput.resetError()" class="block">
         <button class="bg-[blue] pr-[16px] pl-[16px] p-[8px] text-white h-[44px]">
           New
         </button>
@@ -42,12 +42,14 @@
 <script setup>
 import { HoggarListing } from '@/HoggarLibs/stores/hoggarlisting'
 import { HoggarInfo } from '@/HoggarLibs/stores/hoggarinfo';
+import { HoggarInput } from '../stores/hoggarinput';
 import { usePage } from '@inertiajs/vue3'
 import { Link, router } from '@inertiajs/vue3'
 import { ref } from 'vue'
 
 const hoggarlisting = HoggarListing()
 const hoggarinfo = HoggarInfo()
+const hoggarinput = HoggarInput();
 const page = usePage()
 const search = ref('')
 

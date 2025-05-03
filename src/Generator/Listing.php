@@ -29,7 +29,7 @@ class Listing extends Controller
         $this->hogarSettings['hogarDataUrlCreate'] =  $this->hogarDataUrlCreate ;
         $this->hogarSettings['hogarModelClass'] =  $this->hogarModelClass ;
         $this->hogarSettings['hogarModelClassName'] =  $this->hogarModelClassName ;
-        $this->hogarSettings['PaginationPerPageList'] =  $this->PaginationPerPageList ;
+        $this->hogarSettings['paginationPerPageList'] =  $this->paginationPerPageList ;
         $this->hogarSettings['orderByFieldList'] =  $this->orderByFieldList ;
         $this->hogarSettings['orderDirectionList'] =  $this->orderDirectionList ;
         $this->hogarSettings['urlDelete'] =  $this->urlDelete ;
@@ -54,13 +54,13 @@ class Listing extends Controller
     
     public function allInit($request) {
 
-        $PaginationPerPage = $this->PaginationPerPageList[0];
+        $paginationPerPage = $this->paginationPerPageList[0];
         $orderByField = $this->orderByFieldList[0];
         $orderDirection = $this->orderDirectionList[0];
 
-        if ($request->filled('PaginationPerPage')) {
-            if (in_array($request->PaginationPerPage, $this->PaginationPerPageList)) {
-                $PaginationPerPage = $request->PaginationPerPage ;
+        if ($request->filled('paginationPerPage')) {
+            if (in_array($request->paginationPerPage, $this->paginationPerPageList)) {
+                $paginationPerPage = $request->paginationPerPage ;
                  }
         }
 
@@ -88,7 +88,7 @@ class Listing extends Controller
        
     
         $this->tables = $this->queryFilter->orderBy($orderByField,$orderDirection)
-                         ->paginate($PaginationPerPage)
+                         ->paginate($paginationPerPage)
                         ->appends($request->except('page'));
     }
     

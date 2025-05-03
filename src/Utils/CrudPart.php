@@ -211,10 +211,10 @@ class ListingController extends Listing
     public   \$hogarDataUrlCheckRecord = '/admin/$c/CheckRecord' ;
     public   \$customs = ['custom1' => '/admin/$c/custom1'] ;
     public   \$urlDelete = '/admin/$c/delete';
-    public   \$PaginationPerPageList = [1,2,3,4] ;
+    public   \$paginationPerPageList = [1,2,3,4] ;
     public   \$orderByFieldList = ['id'] ;
     public   \$orderDirectionList = ['asc','desc'] ;
-    public   \$sessionFilter = [/*'search','PaginationPerPage','orderByField','orderDirection' */] ;
+    public   \$sessionFilter = [/*'search','paginationPerPage','orderByField','orderDirection' */] ;
    
 
     public function customFilterList(Request \$request)

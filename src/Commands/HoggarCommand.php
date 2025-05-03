@@ -12,7 +12,7 @@ class HoggarCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'install:hoggar';
+    protected $signature = 'hoggar:install';
 
     /**
      * The console command description.
