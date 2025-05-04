@@ -93,7 +93,7 @@ createInertiaApp({
 ```bash
 composer require hoggar/hoggar:dev-main
 php artisan migrate
-php artisan install:hoggar
+php artisan hoggar:install
 php artisan vendor:publish --tag=hoggar-config
 ```
 
