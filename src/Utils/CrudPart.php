@@ -234,7 +234,7 @@ class ListingController extends Listing
         {
             \$this->addAction('action1',
             ['label'=> 'Ajouter','icon' => 'description','class' => 'text-[red]',
-            'url' => '/admin/voitures/action1',
+            'url' => '/admin/$c/action1',
             'confirmation' => 'voulez-vous Ajouter ces records' ,
             'message' => 'records ajouter' ]);
         }
