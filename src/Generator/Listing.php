@@ -20,6 +20,7 @@ class Listing extends Controller
     public $queryFilter;
     public $tables;
     public $groupActions = [];
+    public $customs = [] ;
    
     function __construct() {
         $this->hogarSettings['hogarDataUrlStorage'] =  config('hoggar.urlstorage');
@@ -41,6 +42,10 @@ class Listing extends Controller
         $this->tabFilterLabels[$b['field']] = $b['field'] ;
         $this->tabFilterTypes[$b['field']] = $a;
         $this->tabFilterOptions[$b['field']] = $b;
+    }
+
+    public function addCustom($a,$b) {
+        $this->customs[$a] = $b ;
     }
 
     public function addAction($a,$b) {
@@ -79,6 +84,7 @@ class Listing extends Controller
 
         $this->customFilterList($request);
         $this->initAction($request);
+        $this->initCustom($request);
         $this->customFilters['Fields'] =  $this->tabFilterFields ;
         $this->customFilters['Labels'] =  $this->tabFilterLabels ;
         $this->customFilters['Types'] =  $this->tabFilterTypes ;

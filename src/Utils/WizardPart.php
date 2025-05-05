@@ -268,7 +268,6 @@ class ListingController extends Listing
     public   \$hogarModelClassName = '$a';
     public   \$hogarDataUrlCreate = '/admin/$c/create' ;
     public   \$hogarDataUrlCheckRecord = '/admin/$c/CheckRecord' ;
-    public   \$customs = ['custom1' => '/admin/$c/custom1'] ;
     public   \$urlDelete = '/admin/$c/delete';
     public   \$paginationPerPageList = [1,2,3,4] ;
     public   \$orderByFieldList = ['id'] ;
@@ -297,6 +296,13 @@ class ListingController extends Listing
             'confirmation' => 'voulez-vous Ajouter ces records' ,
             'message' => 'records ajouter' ]);
         }
+
+
+    public function initCustom(Request \$request)
+        {
+            \$this->addCustom('custom1','/admin/$c/custom1');
+        }
+
 
     public function action1(Request \$request)
         {  
