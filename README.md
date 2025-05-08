@@ -118,7 +118,7 @@ Then access the admin panel:
 - 📝 Rich text with Quill.js
 - 📊 Charts with Chart.js
 - ⚡️ Full CRUD generator
-
+- 🔒 Wizard Form
 ---
 
 ## 📚 Documentation
