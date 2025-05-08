@@ -10,7 +10,7 @@
           v-model="hoggarinput.hogarDataValues[props.cle]"
           class="w-5 h-5"
         />
-        <span>{{ hoggarinput.hogarDataValues[props.cle] ? 'Oui' : 'Non' }}</span>
+        
       </div>
   
       <div v-if="hoggarinput.errors[props.cle]" class="text-[red]">
