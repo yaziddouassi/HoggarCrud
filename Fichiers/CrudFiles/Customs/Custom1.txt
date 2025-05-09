@@ -76,8 +76,8 @@ const form = useForm({
   name: null,
 })
 
-function changeForm(a) {
-  form.name = a.name
+function changeForm(record) {
+  form.name = record.name
 }
 
 
