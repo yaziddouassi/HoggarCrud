@@ -122,14 +122,14 @@ class HoggarCreate extends Controller
     }
 
 
-    public function setFieldNodatabases($a) {
+    public function setFieldNodatabase($a) {
 
            $this->tabNodatabases[$a] = $a;
 
     }
 
 
-    public function setFieldNullables($a) {
+    public function setFieldNullable($a) {
         
            $this->tabNullables[$a] = $a;
 
