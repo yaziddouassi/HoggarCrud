@@ -4,6 +4,7 @@ namespace Hoggar\Hoggar\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
 
 class HoggarCommand extends Command
 {
@@ -28,43 +29,49 @@ class HoggarCommand extends Command
     {
 
 
-    $licenseKey = env('GUMROAD_LICENSE_KEY');
-    $productId = 'yyfte';
+$licenseKey = env('GUMROAD_LICENSE_KEY');
 
-    if (empty($licenseKey) || empty($productId)) {
-        $this->error("Your Gumroad Key is missing.");
-        return;
-    }
+// Vérifie si la clé de licence est définie
+if (empty($licenseKey)) {
+    $this->error('❌ GUMROAD_LICENSE_KEY is not set in your environment file.');
+    return Command::FAILURE;
+}
 
-    $attempts = 0;
-    $maxAttempts = 2;
-    $isValid = false;
+$productId = 'iG5U7fLhrV5MXpZfeSQmxQ=='; // Remplacez par l'ID de votre produit Gumroad
 
-    while ($attempts < $maxAttempts && !$isValid) {
-        $response = Http::asForm()->post('https://api.gumroad.com/v2/licenses/verify', [
-            'product_id' => $productId,
-            'license_key' => $licenseKey,
-        ]);
+// Vérification de la licence via l'API de Gumroad
+$response = Http::asForm()->post('https://api.gumroad.com/v2/licenses/verify', [
+    'product_id' => $productId,
+    'license_key' => $licenseKey,
+    'increment_uses_count' => true,
+]);
 
-        $attempts++;
+$data = $response->json();
 
-        if ($response->successful()) {
-            $data = $response->json();
-            if (isset($data['success']) && $data['success'] === true) {
-                $isValid = true;
-                break;
-            }
-        }
+if (!isset($data['success']) || !$data['success']) {
+    $this->error('❌ Invalid Key.');
+    return Command::FAILURE;
+}
 
-        if ($attempts < $maxAttempts) {
-            $this->warn("invalid key " . ($attempts) . "Try again");
-        }
-    }
+$uses = $data['uses'] ?? 0;
+$maxUses = $data['purchase']['max_uses'] ?? 2;
 
-    if (!$isValid) {
-        $this->error("Key already used");
-        return;
-    }
+if ($uses > $maxUses) {
+    $this->error('❌ Licence already used');
+    return Command::FAILURE;
+}
+        
+
+
+
+
+
+
+
+
+
+
+   
 
     // Continuer avec l’installation du package...
     
