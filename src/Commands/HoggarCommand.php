@@ -26,6 +26,51 @@ class HoggarCommand extends Command
      */
     public function handle()
     {
+
+
+    $licenseKey = env('GUMROAD_LICENSE_KEY');
+    $productId = 'yyfte';
+
+    if (empty($licenseKey) || empty($productId)) {
+        $this->error("Your gumroad Key is missing.");
+        return;
+    }
+
+    $attempts = 0;
+    $maxAttempts = 2;
+    $isValid = false;
+
+    while ($attempts < $maxAttempts && !$isValid) {
+        $response = Http::asForm()->post('https://api.gumroad.com/v2/licenses/verify', [
+            'product_id' => $productId,
+            'license_key' => $licenseKey,
+        ]);
+
+        $attempts++;
+
+        if ($response->successful()) {
+            $data = $response->json();
+            if (isset($data['success']) && $data['success'] === true) {
+                $isValid = true;
+                break;
+            }
+        }
+
+        if ($attempts < $maxAttempts) {
+            $this->warn("Clé invalide. Tentative " . ($attempts) . " échouée. Nouvelle tentative...");
+        }
+    }
+
+    if (!$isValid) {
+        $this->error("Key already used");
+        return;
+    }
+
+    // Continuer avec l’installation du package...
+    $this->info("Clé Gumroad validée. L'installation peut continuer.");
+
+
+
         
         $sourcePath = base_path('vendor/hoggar/hoggar/Fichiers/PhpFiles');
         $sourcePath2 = base_path('vendor/hoggar/hoggar/Fichiers/RouteFiles/devhoggar.php');
@@ -144,9 +189,9 @@ class HoggarCommand extends Command
 
 
 
-            $this->info("Package installé avec succès.");
+            $this->info("Package installed with success.");
         } else {
-            $this->warn("Le package est déjà installé.");
+            $this->warn("Package already installed.");
         }
     }
 }
