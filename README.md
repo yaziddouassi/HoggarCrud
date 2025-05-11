@@ -88,10 +88,18 @@ createInertiaApp({
 
 ---
 
-### 4. Install the Hoggar package
+### 4. Put your gumroad Key in .env file
 
 ```bash
-composer require hoggar/hoggar:dev-main
+GUMROAD_LICENSE_KEY=YourGumroadKey
+```
+
+---
+
+### 5. Install the Hoggar package
+
+```bash
+composer require hoggar/hoggar
 php artisan migrate
 php artisan hoggar:install
 php artisan vendor:publish --tag=hoggar-config
@@ -99,7 +107,7 @@ php artisan vendor:publish --tag=hoggar-config
 
 ---
 
-### 5. Create an admin user
+### 6. Create an admin user
 
 ```bash
 php artisan make:hoggar-user
