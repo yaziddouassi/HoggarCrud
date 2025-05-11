@@ -32,7 +32,7 @@ class HoggarCommand extends Command
     $productId = 'yyfte';
 
     if (empty($licenseKey) || empty($productId)) {
-        $this->error("Your gumroad Key is missing.");
+        $this->error("Your Gumroad Key is missing.");
         return;
     }
 
@@ -57,7 +57,7 @@ class HoggarCommand extends Command
         }
 
         if ($attempts < $maxAttempts) {
-            $this->warn("Clé invalide. Tentative " . ($attempts) . " échouée. Nouvelle tentative...");
+            $this->warn("invalid key " . ($attempts) . "Try again");
         }
     }
 
@@ -67,7 +67,7 @@ class HoggarCommand extends Command
     }
 
     // Continuer avec l’installation du package...
-    $this->info("Clé Gumroad validée. L'installation peut continuer.");
+    
 
 
 
