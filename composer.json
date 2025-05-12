@@ -1,6 +1,6 @@
 {
     "name": "hoggar/hoggar",
-    "description": "laravel inertia vue crud generator",
+    "description": "laravel inertia vue crud generator created by Rabah Douassi",
     "type": "library",
     "license": "MIT",
     "autoload": {
