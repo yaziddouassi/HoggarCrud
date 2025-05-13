@@ -23,7 +23,7 @@
         </div>
 
         <div class="mb-4">
-          <label class="block text-white mb-2" for="password">Mot de passe</label>
+          <label class="block text-white mb-2" for="password">Password</label>
           <input
             v-model="form.password"
             type="password"
@@ -42,7 +42,7 @@
             id="remember"
             class="h-4 w-4 text-blue-600 bg-gray-700 border-gray-600"
           />
-          <label for="remember" class="ml-2 text-sm text-white">Se souvenir de moi</label>
+          <label for="remember" class="ml-2 text-sm text-white">Remember me</label>
         </div>
 
         <div class="flex justify-center">
