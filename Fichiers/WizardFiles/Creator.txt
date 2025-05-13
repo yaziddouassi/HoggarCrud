@@ -1,5 +1,5 @@
 <template>
-  <div class="min-[800px]:flex w-full">
+  <div class="min-[800px]:flex w-full text-black">
     <Sidebarre />
     <div class="min-h-[100vh] w-full overflow-x-auto bg-[#DFDFDF]">
       <Navbarre/>

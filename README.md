@@ -103,6 +103,7 @@ composer require hoggar/hoggar
 php artisan migrate
 php artisan hoggar:install
 php artisan vendor:publish --tag=hoggar-config
+php artisan storage:link
 ```
 
 ---
