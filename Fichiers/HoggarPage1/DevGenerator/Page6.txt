@@ -16,7 +16,7 @@
         </div>
 
         <div class="groupe-champ">
-          <label for="motdepasse">Mot de passe</label>
+          <label for="motdepasse">Password</label>
           <input
             v-model="form.password"
             type="password"
@@ -32,11 +32,11 @@
             type="checkbox"
             id="se-souvenir"
           />
-          <label for="se-souvenir">Se souvenir de moi</label>
+          <label for="se-souvenir">Remember me</label>
         </div>
 
         <div class="zone-bouton">
-          <button type="submit" :disabled="form.processing">Connexion</button>
+          <button type="submit" :disabled="form.processing">Login</button>
         </div>
       </form>
     </div>
