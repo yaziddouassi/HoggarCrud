@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <div class="p-[10px] text-[24px] font-bold">
+        <div class="p-[10px] text-[#000044] text-[24px] font-bold">
          {{ wizardcreate.settings.hogarDataModelTitle }}
          <span class="text-[darkblue]">>></span> 
         </div>
