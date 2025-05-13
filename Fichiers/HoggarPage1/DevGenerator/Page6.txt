@@ -1,58 +1,42 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-black text-white px-4">
-    <div class="w-full max-w-md bg-[#111] p-8 rounded-xl shadow">
-      
-      <!-- Titre Company -->
-      <h1 class="text-xl font-semibold text-center text-blue-600 mb-2 uppercase tracking-wide">
-        {{ props.company }}
-      </h1>
+  <div class="conteneur-global">
+    <div class="carte-connexion">
+      <h1 class="titre-entreprise">{{ props.company }}</h1>
 
-      <!-- Formulaire avec autocomplete désactivé -->
-      <form @submit.prevent="submit" autocomplete="off">
-        <div class="mb-4">
-          <label class="block text-white mb-2" for="email">Email</label>
+      <form @submit.prevent="soumettre" autocomplete="off">
+        <div class="groupe-champ">
+          <label for="email">Email</label>
           <input
             v-model="form.email"
             type="email"
             id="email"
-            autocomplete="off"
-            class="w-full h-[44px] px-4 py-2 border border-gray-600 rounded-[2px] bg-[#222] text-gray-200 focus:outline-none focus:ring focus:ring-white"
             required
             autofocus
           />
         </div>
 
-        <div class="mb-4">
-          <label class="block text-white mb-2" for="password">Password</label>
+        <div class="groupe-champ">
+          <label for="motdepasse">Mot de passe</label>
           <input
             v-model="form.password"
             type="password"
-            id="password"
+            id="motdepasse"
             autocomplete="new-password"
-            class="w-full h-[44px] px-4 py-2 border border-gray-600 rounded-[2px] bg-[#222] text-gray-200 focus:outline-none focus:ring focus:ring-white"
             required
           />
         </div>
 
-        <!-- Case à cocher Remember Me -->
-        <div class="mb-6 flex items-center">
+        <div class="case-memoire">
           <input
             v-model="form.remember"
             type="checkbox"
-            id="remember"
-            class="h-4 w-4 text-blue-600 bg-gray-700 border-gray-600"
+            id="se-souvenir"
           />
-          <label for="remember" class="ml-2 text-sm text-white">Remember me</label>
+          <label for="se-souvenir">Se souvenir de moi</label>
         </div>
 
-        <div class="flex justify-center">
-          <button
-            type="submit"
-            class="bg-blue-600 h-[44px] w-[140px] text-white font-semibold py-2 px-6 rounded-[2px] hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white"
-            :disabled="form.processing"
-          >
-            Login
-          </button>
+        <div class="zone-bouton">
+          <button type="submit" :disabled="form.processing">Connexion</button>
         </div>
       </form>
     </div>
@@ -72,7 +56,135 @@ const props = defineProps({
   company: String
 })
 
-function submit() {
+function soumettre() {
   form.post('/admin/login')
 }
 </script>
+
+<style>
+/* Reset de base */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+
+/* Inertia wrapper */
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+/* Conteneur principal centré */
+.conteneur-global {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #000;
+  color: white;
+}
+
+/* Boîte du formulaire */
+.carte-connexion {
+  width: 100%;
+  max-width: 400px;
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Titre */
+.titre-entreprise {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3b82f6;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Groupe champ */
+.groupe-champ {
+  margin-bottom: 1rem;
+}
+
+.groupe-champ label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.groupe-champ input[type="email"],
+.groupe-champ input[type="password"] {
+  width: 100%;
+  height: 44px;
+  padding: 0.5rem 1rem;
+  background-color: #222;
+  border: 1px solid #4b5563;
+  color: #e5e7eb;
+  border-radius: 2px;
+  outline: none;
+}
+
+.groupe-champ input:focus {
+  box-shadow: 0 0 0 2px white;
+}
+
+/* Case à cocher */
+.case-memoire {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.case-memoire input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #3b82f6;
+  background-color: #374151;
+  border: 1px solid #4b5563;
+}
+
+.case-memoire label {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Bouton */
+.zone-bouton {
+  display: flex;
+  justify-content: center;
+}
+
+.zone-bouton button {
+  background-color: blue;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 2px;
+  height: 44px;
+  width: 140px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.zone-bouton button:hover {
+  background-color: #2563eb;
+}
+
+.zone-bouton button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+</style>
