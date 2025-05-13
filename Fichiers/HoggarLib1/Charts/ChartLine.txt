@@ -14,7 +14,7 @@
   
         <!-- Refresh Button -->
         <div class="text-center mt-[10px]">
-          <button @click="changer" class="border-[1px] border-black p-[8px]">Update</button>
+          <button @click="changer" class="border-[1px] text-black border-black p-[8px]">Update</button>
         </div>
       </div>
     </div>

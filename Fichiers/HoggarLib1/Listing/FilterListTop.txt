@@ -6,7 +6,7 @@
         <div class="relative inline-block text-left">
           <!-- Bouton du menu -->
           <div
-            @click="hoggarinfo.show2 = !hoggarinfo.show2"
+            @click="ouvrir1()"
             class="cursor-pointer px-4 py-2 bg-blue-600 text-white rounded-lg shadow"
           >
             Action
@@ -51,7 +51,7 @@
 
         <div
           class="border-[1px] border-black p-2 rounded cursor-pointer"
-          @click="hoggarinfo.show = !hoggarinfo.show"
+          @click="ouvrir2()"
         >
           All Filters
         </div>
@@ -79,7 +79,18 @@ function rezetActionIds() {
   hoggarlisting.actionIds = []
 }
 
+function ouvrir1() {
+  hoggarinfo.show = false
+  hoggarinfo.show2 = !hoggarinfo.show2
+}
+
+function ouvrir2() {
+  hoggarinfo.show2 = false
+  hoggarinfo.show = !hoggarinfo.show
+}
+
 function rezetFilter() {
+
   const hoggar = JSON.parse(localStorage.getItem('hoggar'))
   hoggar[hoggarlisting.settings.hogarModelClassName] = {}
   hoggarlisting.actionIds = []

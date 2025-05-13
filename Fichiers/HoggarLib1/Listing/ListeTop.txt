@@ -65,6 +65,11 @@ if (params.has('search')) {
 let timeout = null
 // Met à jour les query params et navigue
 function replaceQuery() {
+
+   hoggarlisting.actionIds = []
+   hoggarinfo.show = false
+   hoggarinfo.show2 = false
+
   clearTimeout(timeout)
 
   const hoggar = JSON.parse(localStorage.getItem('hoggar'))

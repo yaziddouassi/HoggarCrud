@@ -41,7 +41,7 @@ class CreatorController extends WizardCreate
     public   \$wizardCount = 2 ;
     public   \$wizardForm = [1 => ['name'], 2 => ['age']];
     public   \$wizardLabel = [1 => 'first', 2 => 'second'];
-    public   \$wizardStop = [1];
+    public   \$wizardStop = [];
 
 
     
@@ -144,7 +144,7 @@ class UpdatorController extends HoggarUpdate
     public   \$wizardCount = 2 ;
     public   \$wizardForm = [1 => ['name'], 2 => ['age']];
     public   \$wizardLabel = [1 => 'first', 2 => 'second'];
-    public   \$wizardStop = [1];
+    public   \$wizardStop = [];
 
     public function initField()
     {   

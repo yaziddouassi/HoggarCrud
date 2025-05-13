@@ -68,6 +68,10 @@ onMounted(() => {
 let timeout = null
 
 function replaceQuery() {
+
+  hoggarlisting.actionIds = []
+  hoggarinfo.show2 = false
+
   clearTimeout(timeout)
 
   timeout = setTimeout(() => {

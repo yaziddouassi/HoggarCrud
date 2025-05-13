@@ -64,6 +64,10 @@ if (params.has(props.cle)) {
 }
 
 function replaceQuery() {
+
+  hoggarlisting.actionIds = []
+  hoggarinfo.show2 = false
+
   const hoggar = JSON.parse(localStorage.getItem('hoggar'))
   const isValue = Object.values(hoggarinfo.sessionFilter).includes(props.cle)
 
