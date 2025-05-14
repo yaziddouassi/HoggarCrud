@@ -10,9 +10,13 @@
             v-model="form.email"
             type="email"
             id="email"
+            :class="{ 'champ-erreur': form.errors.email }"
             required
             autofocus
           />
+          <div v-if="form.errors.email" class="message-erreur">
+            {{ form.errors.email }}
+          </div>
         </div>
 
         <div class="groupe-champ">
@@ -21,9 +25,13 @@
             v-model="form.password"
             type="password"
             id="motdepasse"
+            :class="{ 'champ-erreur': form.errors.password }"
             autocomplete="new-password"
             required
           />
+          <div v-if="form.errors.password" class="message-erreur">
+            {{ form.errors.password }}
+          </div>
         </div>
 
         <div class="case-memoire">
@@ -138,6 +146,18 @@ html, body {
 
 .groupe-champ input:focus {
   box-shadow: 0 0 0 2px white;
+}
+
+/* Style champ en erreur */
+.champ-erreur {
+  border-color: #ef4444;
+}
+
+/* Message erreur */
+.message-erreur {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
 
 /* Case à cocher */
