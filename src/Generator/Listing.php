@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class Listing extends Controller
 {
     public $hogarSettings = [] ;
-    public $allFilters = ['search' => 'search', 'PaginationPerPage' => 'PaginationPerPage',
+    public $allFilters = ['search' => 'search', 'paginationPerPage' => 'paginationPerPage',
      'orderByField' => 'orderByField', 'orderDirection' => 'orderDirection'];
     public $customFilters = [] ;
     public $tabFilterFields = [];
