@@ -6,15 +6,14 @@
   
       <div>
         <select
-          class="w-full bg-[#E8E8E8] h-[50px] border-[darkblue] border-[1px]"
+          class="w-full bg-[#E8E8E8] h-[50px] border-[darkblue] border-[1px] text-center"
           v-model="hoggarinput.hogarDataValues[props.cle]"
         >
-          <option value="">-- Sélectionner --</option>
+          <option value="">-- Select --</option>
           <option
             v-for="(option,index) in hoggarinput.hogarDataOptions[props.cle].contents"
             :key="option"
             :value="option">
-            {{ option }}
           {{ hoggarinput.hogarDataOptions[props.cle].labels[index] }}
           </option>
         </select>
