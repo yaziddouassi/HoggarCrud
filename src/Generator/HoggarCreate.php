@@ -191,10 +191,6 @@ class HoggarCreate extends Controller
                   }
                }
 
-               elseif (in_array($this->tabTypes[$key], $this->arrayTypes8)) {
-                $this->hogarRecord->$key = '';
-               }
-
             }
         }
     }
