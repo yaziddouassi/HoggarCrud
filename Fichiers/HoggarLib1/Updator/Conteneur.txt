@@ -1,103 +1,58 @@
 <template>
-      <div class="grid max-[700px]:grid-cols-1
-        grid-cols-2 p-[10px] gap-[10px]">
-        <div 
-         v-for="(item, index) in hoggarinput.hogarDataFields" :key="index">
-           <div>
-            <InputText v-if=" hoggarinput.hogarDataTypes[index] == 'Text'" :cle="index" />
-           </div>
-           <div>
-            <Password v-if=" hoggarinput.hogarDataTypes[index] == 'Password'" :cle="index" />
-           </div>
-           <div>
-            <InputRadio v-if=" hoggarinput.hogarDataTypes[index] == 'Radio'" :cle="index" />
-           </div>
-           <div>
-            <Textarea v-if=" hoggarinput.hogarDataTypes[index] == 'Textarea'" :cle="index"/>
-           </div>
-           <div>
-            <CheckBox v-if=" hoggarinput.hogarDataTypes[index] == 'Checkbox'" :cle="index" />
-           </div>
-           <div>
-            <CheckBoxMultiple v-if=" hoggarinput.hogarDataTypes[index] == 'CheckboxList'" :cle="index" />
-           </div>
-           <div>
-            <InputSelect v-if=" hoggarinput.hogarDataTypes[index] == 'Select'" :cle="index" />
-           </div>
-           <div>
-            <InputDate v-if=" hoggarinput.hogarDataTypes[index] == 'Date'" :cle="index" />
-           </div>
-           <div>
-            <InputNumber v-if=" hoggarinput.hogarDataTypes[index] == 'Number'" :cle="index" />
-           </div>
-
-           <div>
-            <Editeur v-if=" hoggarinput.hogarDataTypes[index] == 'Quill'" :cle="index"  />
-           </div>
-           <div>
-           <InputImageEdit v-if=" hoggarinput.hogarDataTypes[index] == 'ImageEdit'" :cle="index"   />
-          </div>
-
-          <div>
-           <InputAudioEdit v-if=" hoggarinput.hogarDataTypes[index] == 'AudioEdit'" :cle="index"   />
-          </div>
-
-          <div>
-           <InputVideoEdit v-if=" hoggarinput.hogarDataTypes[index] == 'VideoEdit'" :cle="index"   />
-          </div>
-
-          <div>
-           <InputFileEdit v-if=" hoggarinput.hogarDataTypes[index] == 'FileEdit'" :cle="index"   />
-          </div>
-
-          <div>
-           <MultipleAudioEdit v-if=" hoggarinput.hogarDataTypes[index] == 'MultipleAudioEdit'" :cle="index"   />
-          </div>
-
-          <div>
-           <MultipleImageEdit v-if=" hoggarinput.hogarDataTypes[index] == 'MultipleImageEdit'" :cle="index"   />
-          </div>
-
-          <div>
-           <MultipleVideoEdit v-if=" hoggarinput.hogarDataTypes[index] == 'MultipleVideoEdit'" :cle="index"   />
-          </div>
-
-          <div>
-           <MultipleFileEdit v-if=" hoggarinput.hogarDataTypes[index] == 'MultipleFileEdit'" :cle="index"   />
-          </div> 
-
-        </div>
+  <div class="grid max-[700px]:grid-cols-1 grid-cols-2 p-[10px] gap-[10px]">
+    <div
+      v-for="([key, field], index) in Object.entries(hoggarinput.hogarDataFields).filter(([k, _]) => hoggarinput.hogarDataTypes[k] !== 'Hidden')"
+      :key="key"
+    >
+      <InputText v-if="hoggarinput.hogarDataTypes[key] === 'Text'" :cle="key" />
+      <Password v-else-if="hoggarinput.hogarDataTypes[key] === 'Password'" :cle="key" />
+      <InputRadio v-else-if="hoggarinput.hogarDataTypes[key] === 'Radio'" :cle="key" />
+      <Textarea v-else-if="hoggarinput.hogarDataTypes[key] === 'Textarea'" :cle="key" />
+      <CheckBox v-else-if="hoggarinput.hogarDataTypes[key] === 'Checkbox'" :cle="key" />
+      <CheckBoxMultiple v-else-if="hoggarinput.hogarDataTypes[key] === 'CheckboxList'" :cle="key" />
+      <InputSelect v-else-if="hoggarinput.hogarDataTypes[key] === 'Select'" :cle="key" />
+      <InputDate v-else-if="hoggarinput.hogarDataTypes[key] === 'Date'" :cle="key" />
+      <InputNumber v-else-if="hoggarinput.hogarDataTypes[key] === 'Number'" :cle="key" />
+      <Editeur v-else-if="hoggarinput.hogarDataTypes[key] === 'Quill'" :cle="key" />
+      <InputImageEdit v-else-if="hoggarinput.hogarDataTypes[key] === 'ImageEdit'" :cle="key" />
+      <InputAudioEdit v-else-if="hoggarinput.hogarDataTypes[key] === 'AudioEdit'" :cle="key" />
+      <InputVideoEdit v-else-if="hoggarinput.hogarDataTypes[key] === 'VideoEdit'" :cle="key" />
+      <InputFileEdit v-else-if="hoggarinput.hogarDataTypes[key] === 'FileEdit'" :cle="key" />
+      <MultipleAudioEdit v-else-if="hoggarinput.hogarDataTypes[key] === 'MultipleAudioEdit'" :cle="key" />
+      <MultipleImageEdit v-else-if="hoggarinput.hogarDataTypes[key] === 'MultipleImageEdit'" :cle="key" />
+      <MultipleVideoEdit v-else-if="hoggarinput.hogarDataTypes[key] === 'MultipleVideoEdit'" :cle="key" />
+      <MultipleFileEdit v-else-if="hoggarinput.hogarDataTypes[key] === 'MultipleFileEdit'" :cle="key" />
     </div>
+  </div>
 </template>
 
 <script setup>
-import InputText from '../Inputs/InputText.vue';
-import Password from '../Inputs/Password.vue';
-import InputSelect from '../Inputs/InputSelect.vue';
-import InputNumber from '../Inputs/InputNumber.vue';
-import InputRadio from '../Inputs/InputRadio.vue';
-import InputDate from '../Inputs/InputDate.vue';
-import CheckBoxMultiple from '../Inputs/CheckBoxMultiple.vue';
-import CheckBox from '../Inputs/CheckBox.vue';
-import Textarea from '../Inputs/Textarea.vue';
-import Editeur from '../Inputs/Editeur.vue';
-import InputImageEdit from '../Inputs/InputImageEdit.vue';
-import InputAudioEdit from '../Inputs/InputAudioEdit.vue';
-import InputVideoEdit from '../Inputs/InputVideoEdit.vue';
-import InputFileEdit from '../Inputs/InputFileEdit.vue';
-import MultipleAudioEdit from '../Inputs/MultipleAudioEdit.vue';
-import MultipleImageEdit from '../Inputs/MultipleImageEdit.vue';
-import MultipleVideoEdit from '../Inputs/MultipleVideoEdit.vue';
-import MultipleFileEdit from '../Inputs/MultipleFileEdit.vue';
+import { HoggarInput } from '@/HoggarLibs/stores/hoggarinput'
 
-import { HoggarInput } from '@/HoggarLibs/stores/hoggarinput';
+import InputText from '../Inputs/InputText.vue'
+import Password from '../Inputs/Password.vue'
+import InputSelect from '../Inputs/InputSelect.vue'
+import InputNumber from '../Inputs/InputNumber.vue'
+import InputRadio from '../Inputs/InputRadio.vue'
+import InputDate from '../Inputs/InputDate.vue'
+import CheckBoxMultiple from '../Inputs/CheckBoxMultiple.vue'
+import CheckBox from '../Inputs/CheckBox.vue'
+import Textarea from '../Inputs/Textarea.vue'
+import Editeur from '../Inputs/Editeur.vue'
 
+import InputImageEdit from '../Inputs/InputImageEdit.vue'
+import InputAudioEdit from '../Inputs/InputAudioEdit.vue'
+import InputVideoEdit from '../Inputs/InputVideoEdit.vue'
+import InputFileEdit from '../Inputs/InputFileEdit.vue'
 
-const hoggarinput = HoggarInput();
-  
+import MultipleAudioEdit from '../Inputs/MultipleAudioEdit.vue'
+import MultipleImageEdit from '../Inputs/MultipleImageEdit.vue'
+import MultipleVideoEdit from '../Inputs/MultipleVideoEdit.vue'
+import MultipleFileEdit from '../Inputs/MultipleFileEdit.vue'
 
+const hoggarinput = HoggarInput()
 </script>
 
-<style lang="css" scoped>
-
+<style scoped>
+/* Ton style personnalisé ici */
 </style>
