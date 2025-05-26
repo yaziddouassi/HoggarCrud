@@ -81,6 +81,10 @@ if(currentRoute == undefined) {
   currentRoute = props.hogarSettings.hogarDataRouteListe
 }
 
+function cleanQuillContent(html) {
+  if (typeof html !== 'string') return html;
+  return html.replace(/<p>\s*<\/p>/g, '').replace(/<p><br><\/p>/g, '').trim();
+}
 
 function checkNullable() {
   let temoin = 0;
