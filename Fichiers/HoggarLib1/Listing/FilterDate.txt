@@ -8,8 +8,10 @@
         <input
           type="date"
           v-model="myInput"
-          :min="hoggarinfo.customFilters.Options[props.cle].min"
-          :max="hoggarinfo.customFilters.Options[props.cle].max"
+          :min="hoggarinfo.customFilters.Options[props.cle].min !== 'infinite' ? 
+                hoggarinfo.customFilters.Options[props.cle].min : null"
+          :max="hoggarinfo.customFilters.Options[props.cle].max !== 'infinite' ? 
+                hoggarinfo.customFilters.Options[props.cle].max : null"
           @change="replaceQuery"
           placeholder="Rechercher..."
           class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"

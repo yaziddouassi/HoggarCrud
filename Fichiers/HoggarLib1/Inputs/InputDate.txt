@@ -9,8 +9,10 @@
           class="w-full bg-[#E8E8E8] h-[50px] border-[darkblue] border-[1px]"
           type="date"
           v-model="hoggarinput.hogarDataValues[props.cle]"
-          :min="hoggarinput.hogarDataOptions[props.cle].min"
-          :max="hoggarinput.hogarDataOptions[props.cle].max"
+          :min="hoggarinput.hogarDataOptions[props.cle].min !== 'infinite' ? 
+                hoggarinput.hogarDataOptions[props.cle].min : null"
+          :max="hoggarinput.hogarDataOptions[props.cle].max !== 'infinite' ? 
+                hoggarinput.hogarDataOptions[props.cle].max : null"
         >
       </div>
   
