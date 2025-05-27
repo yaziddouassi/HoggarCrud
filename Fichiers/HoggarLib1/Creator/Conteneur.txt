@@ -1,5 +1,5 @@
 <template>
-  <div class="grid max-[700px]:grid-cols-1 grid-cols-2 p-[10px] gap-[10px]">
+  <div :class="props.class">
     <div 
       v-for="([key, field], index) in Object.entries(hoggarinput.hogarDataFields).filter(([k, _]) => hoggarinput.hogarDataTypes[k] !== 'Hidden')" 
       :key="key"
@@ -46,6 +46,14 @@ import MultipleAudio from '../Inputs/MultipleAudio.vue';
 import MultipleImage from '../Inputs/MultipleImage.vue';
 import MultipleVideo from '../Inputs/MultipleVideo.vue';
 import { HoggarInput } from '@/HoggarLibs/stores/hoggarinput';
+
+
+const props = defineProps({
+    class: {
+      type: String,
+      required: true
+    }
+  })
 
 const hoggarinput = HoggarInput();
   

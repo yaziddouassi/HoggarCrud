@@ -6,8 +6,8 @@
     </div>
 
     <!-- Éditeur Quill -->
-    <div class="bg-white h-[300px] border border-gray-300 rounded-ls shadow-sm p-2">
-      <div ref="editorContainer" class="min-h-[180px]"></div>
+    <div class="bg-white border border-gray-300 rounded-ls shadow-sm p-2">
+      <div ref="editorContainer" class="w-full min-h-[120px]"></div>
     </div>
 
     <!-- Message d'erreur -->
@@ -35,7 +35,18 @@ const editorContainer = ref(null);
 const content = ref(hoggarinput.hogarDataValues[props.cle]);
 let quill = null;
 
-// Options de Quill
+// Fonction pour ajuster la hauteur du contenu (sans toucher à la toolbar)
+const adjustEditorHeight = () => {
+  const qlContent = editorContainer.value.querySelector(".ql-editor");
+  if (qlContent) {
+    const scrollHeight = qlContent.scrollHeight;
+    const container = editorContainer.value.querySelector(".ql-container");
+    if (container) {
+      container.style.height = scrollHeight + 20 + "px"; // petite marge
+    }
+  }
+};
+
 const quillOptions = {
   theme: "snow",
   modules: {
@@ -51,33 +62,41 @@ const quillOptions = {
 
 onMounted(() => {
   quill = new Quill(editorContainer.value, quillOptions);
-  quill.root.innerHTML = hoggarinput.hogarDataValues[props.cle] || "";
+  quill.root.innerHTML = content.value || "";
+
+  // Ajuste la hauteur au montage
+  setTimeout(adjustEditorHeight, 100);
 
   quill.on("text-change", () => {
-    content.value = quill.root.innerHTML.trim() === "<p><br></p>" ? "" : quill.root.innerHTML;
+    const html = quill.root.innerHTML.trim();
+    content.value = html === "<p><br></p>" ? "" : html;
     hoggarinput.hogarDataValues[props.cle] = content.value;
+    adjustEditorHeight();
   });
 });
 
-// Synchronisation des mises à jour externes
+// Watch pour synchroniser les changements externes
 watch(
   () => hoggarinput.hogarDataValues[props.cle],
   (newValue) => {
     if (quill && newValue !== quill.root.innerHTML) {
       content.value = newValue;
       quill.clipboard.dangerouslyPasteHTML(newValue);
+      adjustEditorHeight();
     }
   }
 );
 </script>
 
 <style scoped>
-/* Suppression de la bordure par défaut de Quill */
 ::v-deep(.ql-container) {
   border: none !important;
+  padding: 0 !important;
+  transition: height 0.15s ease;
 }
 
 ::v-deep(.ql-toolbar) {
   border: none !important;
+  margin-bottom: 0.5rem;
 }
 </style>
